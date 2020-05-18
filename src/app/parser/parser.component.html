@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-md-4 centerDiv">
+        <label><b>Upload your Resume</b></label>
+        <div class="input-group">
+            <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile04" (change)="fileProgress($event)">
+            <label class="custom-file-label" for="inputGroupFile04">{{ resumeName }}</label>
+          </div>
+        </div>
+        <div class="ui indicating progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <button class="btn btn-primary" [disabled]="!loadedResume" (click)="onSubmit($event)">Submit</button>
+        </div>
+      </div>
+    <div class="ui horizontal divider">Upload</div>
+</div>
+  
+<div class="container" *ngIf="edit">
+  <app-editform  [skills] = "skills" 
+  [education] = "education"
+  [experiences] = "experience"
+  [misc] = "misc"
+  [others] = "others">
+    
+  </app-editform>
+
+  <div class="ui huge primary button" disabled >Save <i class="right arrow icon"></i></div>
+  <div class="ui huge primary button" >Match Jobs<i class="right arrow icon"></i></div>
+  <div class="ui huge primary button" >Export CV<i class="right arrow icon"></i></div>
+</div>
