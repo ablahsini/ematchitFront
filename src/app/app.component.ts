@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(){}
+  authenticated: boolean;
+  username: string;
+
+  constructor(private auth: AuthService) { }
+
+  ngOnInit() {
+    this.auth.subscribe(
+      (authenticated) => {
+        this.authenticated = authenticated;
+        if (authenticated) {
+          this.username = this.auth.getUsername();
+        } else {
+          this.username = undefined;
+        }
+      }
+    );
+  }
 }

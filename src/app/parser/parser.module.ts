@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ParserRoutingModule } from './parser-routing.module';
 import { ParserComponent } from './parser.component';
-import { EditformComponent } from '../editform/editform.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
-  declarations: [ParserComponent, EditformComponent],
+  declarations: [ParserComponent],
   imports: [
     CommonModule,
-    ParserRoutingModule
+    ParserRoutingModule,
+    FormsModule
   ]
 })
 export class ParserModule { }
